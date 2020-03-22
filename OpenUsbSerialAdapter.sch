@@ -5,10 +5,10 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "OpenUsbSerialAdapter"
-Date "2020-01-12"
+Date "2020-03-23"
 Rev "1git"
 Comp "SukkoPera"
-Comment1 ""
+Comment1 "Licensed under CERN OHL v.1.2"
 Comment2 ""
 Comment3 ""
 Comment4 ""
@@ -402,8 +402,8 @@ L Device:C C3
 U 1 1 5E152A25
 P 7345 2500
 F 0 "C3" H 7460 2546 50  0000 L CNN
-F 1 "220u" H 7460 2455 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 7383 2350 50  0001 C CNN
+F 1 "330n" H 7460 2455 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7383 2350 50  0001 C CNN
 F 3 "~" H 7345 2500 50  0001 C CNN
 	1    7345 2500
 	1    0    0    -1  
@@ -479,28 +479,6 @@ Wire Wire Line
 	10445 885  10445 1090
 Wire Wire Line
 	2680 3030 2680 2930
-$Comp
-L power:+5V #PWR0103
-U 1 1 5E16C4F0
-P 2680 2930
-F 0 "#PWR0103" H 2680 2780 50  0001 C CNN
-F 1 "+5V" H 2695 3103 50  0000 C CNN
-F 2 "" H 2680 2930 50  0001 C CNN
-F 3 "" H 2680 2930 50  0001 C CNN
-	1    2680 2930
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:CP1 C4
-U 1 1 5E16E2B3
-P 2680 3180
-F 0 "C4" H 2795 3226 50  0000 L CNN
-F 1 "CP1" H 2795 3135 50  0000 L CNN
-F 2 "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A_Pad1.58x1.35mm_HandSolder" H 2680 3180 50  0001 C CNN
-F 3 "~" H 2680 3180 50  0001 C CNN
-	1    2680 3180
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2680 3330 2680 3415
 $Comp
@@ -543,11 +521,11 @@ $EndComp
 Wire Wire Line
 	4425 5910 4425 6180
 Wire Wire Line
-	4425 6180 5480 6180
+	4425 6180 4950 6180
 Wire Wire Line
 	5480 6180 5480 5910
 Wire Wire Line
-	4950 5760 4950 6275
+	4950 5760 4950 6180
 $Comp
 L power:GND #PWR012
 U 1 1 5E1B4E9D
@@ -601,7 +579,7 @@ U 1 1 5E1CA93B
 P 6880 5390
 F 0 "SW1" H 6880 5675 50  0000 C CNN
 F 1 "SW_DPDT_x2" H 6880 5584 50  0000 C CNN
-F 2 "" H 6880 5390 50  0001 C CNN
+F 2 "Button_Switch_THT:SW_CuK_JS202011CQN_DPDT_Straight" H 6880 5390 50  0001 C CNN
 F 3 "~" H 6880 5390 50  0001 C CNN
 	1    6880 5390
 	-1   0    0    -1  
@@ -612,7 +590,7 @@ U 2 1 5E1CB27F
 P 7025 2205
 F 0 "SW1" H 7025 1880 50  0000 C CNN
 F 1 "SW_DPDT_x2" H 7025 1971 50  0000 C CNN
-F 2 "" H 7025 2205 50  0001 C CNN
+F 2 "Button_Switch_THT:SW_CuK_JS202011CQN_DPDT_Straight" H 7025 2205 50  0001 C CNN
 F 3 "~" H 7025 2205 50  0001 C CNN
 	2    7025 2205
 	1    0    0    1   
@@ -736,6 +714,33 @@ F 1 "AMS1117-3.3" H 4950 5611 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 4950 5660 50  0001 C CNN
 F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 5050 5210 50  0001 C CNN
 	1    4950 5460
+	1    0    0    -1  
+$EndComp
+Connection ~ 4950 6180
+Wire Wire Line
+	4950 6180 5480 6180
+Wire Wire Line
+	4950 6180 4950 6275
+$Comp
+L power:VCC #PWR0103
+U 1 1 5EE1C505
+P 2680 2930
+F 0 "#PWR0103" H 2680 2780 50  0001 C CNN
+F 1 "VCC" H 2697 3103 50  0000 C CNN
+F 2 "" H 2680 2930 50  0001 C CNN
+F 3 "" H 2680 2930 50  0001 C CNN
+	1    2680 2930
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C4
+U 1 1 5EE1F7D3
+P 2680 3180
+F 0 "C4" H 2795 3226 50  0000 L CNN
+F 1 "100n" H 2795 3135 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2718 3030 50  0001 C CNN
+F 3 "~" H 2680 3180 50  0001 C CNN
+	1    2680 3180
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
