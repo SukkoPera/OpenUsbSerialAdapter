@@ -111,7 +111,7 @@ U 1 1 5E118FA8
 P 9285 3075
 F 0 "J2" H 9313 3051 50  0000 L CNN
 F 1 "FTDI" H 9313 2960 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 9285 3075 50  0001 C CNN
+F 2 "OpenUsbSerialAdapter:PinHeader_1x06_P2.54mm_Vertical" H 9285 3075 50  0001 C CNN
 F 3 "~" H 9285 3075 50  0001 C CNN
 	1    9285 3075
 	1    0    0    -1  

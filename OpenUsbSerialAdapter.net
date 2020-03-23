@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/sukko/Documents/kicad/OpenUsbSerialAdapter/OpenUsbSerialAdapter.sch)
-    (date "lun 23 mar 2020, 09:56:29")
+    (date "lun 23 mar 2020, 10:17:51")
     (tool "Eeschema 5.1.5")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -31,7 +31,7 @@
       (tstamp 5E114D20))
     (comp (ref J2)
       (value FTDI)
-      (footprint Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical)
+      (footprint OpenUsbSerialAdapter:PinHeader_1x06_P2.54mm_Vertical)
       (datasheet ~)
       (libsource (lib Connector) (part Conn_01x06_Female) (description "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"))
       (sheetpath (names /) (tstamps /))
