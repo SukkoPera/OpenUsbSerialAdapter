@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/sukko/Documents/kicad/OpenUsbSerialAdapter/OpenUsbSerialAdapter.sch)
-    (date "lun 23 mar 2020, 10:17:51")
+    (date "lun 23 mar 2020, 10:24:11")
     (tool "Eeschema 5.1.5")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -143,7 +143,7 @@
       (tstamp 5E1ACE17))
     (comp (ref SW1)
       (value SW_DPDT_x2)
-      (footprint Button_Switch_THT:SW_CuK_JS202011CQN_DPDT_Straight)
+      (footprint OpenUsbSerialAdapter:SW_DPDT)
       (libsource (lib Switch) (part SW_DPDT_x2) (description "Switch, dual pole double throw, separate symbols"))
       (sheetpath (names /) (tstamps /))
       (tstamp 5E1CA93B))
