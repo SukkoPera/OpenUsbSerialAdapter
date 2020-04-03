@@ -743,4 +743,8 @@ F 3 "~" H 2680 3180 50  0001 C CNN
 	1    2680 3180
 	1    0    0    -1  
 $EndComp
+Text Label 6850 3405 0    50   ~ 0
+clk+
+Text Label 6850 3875 0    50   ~ 0
+clk-
 $EndSCHEMATC
