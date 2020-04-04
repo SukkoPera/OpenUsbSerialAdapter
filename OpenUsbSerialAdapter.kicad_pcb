@@ -12,8 +12,8 @@
   (page A4)
   (title_block
     (title OpenUsbSerialAdapter)
-    (date 2020-04-03)
-    (rev 1git)
+    (date 2020-04-04)
+    (rev 1)
     (company SukkoPera)
     (comment 1 "Licensed under CERN OHL v.1.2")
   )

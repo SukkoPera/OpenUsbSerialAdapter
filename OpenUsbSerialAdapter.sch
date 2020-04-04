@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "OpenUsbSerialAdapter"
 Date "2020-03-23"
-Rev "1git"
+Rev "1"
 Comp "SukkoPera"
 Comment1 "Licensed under CERN OHL v.1.2"
 Comment2 ""
