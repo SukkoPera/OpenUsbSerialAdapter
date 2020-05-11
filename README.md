@@ -14,9 +14,9 @@ An infinite number of different models of USB to Serial converters can be found 
 So, when I came across a USB to Serial chip ([Microchip MCP2200](https://www.microchip.com/wwwproducts/en/en546923)) that claimed not to need any particular drivers, I decided to have a go at designing the one converter to rule them all. I hope I considered every possible feature in the design, but in any case I am releasing this as Open Hardware, so everybody can customize it so that it fully suits their needs.
 
 ### Features
-- Real support for both 3.3V and 5V serial levels
+- Real support for both 3.3V and 5V serial and power output levels
 - Protection resistors for RX/TX inversion
-- RX/TX pull-up resistors (Optional)
+- RX/TX pull-up resistors (optional)
 - Can provide up to 1A current on the 3.3V power output pin (This will actually be less as it will be limited by USB)
 - Hardware Flow Control pins (RTS/CTS, RTS can be used for the initial reset for Arduino programming)
 - Uses USB HID capabilities, which means it needs no drivers on Windows/OSX (This has to confirmed, as I only run Linux)
@@ -25,7 +25,7 @@ So, when I came across a USB to Serial chip ([Microchip MCP2200](https://www.mic
 
 ### Assembly and Configuration
 Solder all components to the board in the order you prefer. You have some options:
-- R3 and R4 are the RX/TX inversion protection resistors. I use 100 ohm for these, which works fine in my tests, but this value was improvised rather than calculated. You might want to increase them up to 1k for additional safety. In rare cases, you might want to replace them with 0 ohm/solder blobs, but this might be harmful for the main chip or for the device it is connected to. Do this at your risk.
+- R3 and R4 are the RX/TX inversion protection resistors. I used 100 ohm for these, which works fine in my tests, but this value was improvised rather than calculated. You might want to increase them up to 1k for additional safety. In rare cases, you might want to replace them with 0 ohm/solder blobs, but this might be harmful for the main chip or for the device it is connected to. Do this at your risk.
 - R5 and R6 are the RX/TX pull-up resistors. Usually these are not necessary, so you might want to skip them. Note that R7 is mandatory instead.
 
 The adapter is somehow configurable. On Windows you can use [the official Microchip Configuration Utility](http://ww1.microchip.com/downloads/en/DeviceDoc/MCP2200%20Configuration%20Utility%20v1.3.1.zip). On Linux (and OSX?) you can use [a quick replacement I put together](https://github.com/SukkoPera/OpenUsbSerialAdapter/tree/master/confutil), or [this other one](https://github.com/andrasbiro/mcp2200hid-linux). The latter is also capable of changing the USB product/manufacturer strings and PID/VID.
