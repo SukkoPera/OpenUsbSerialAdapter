@@ -6,12 +6,12 @@ OpenUsbSerialAdapter is an Open Hardware USB to Serial converter.
 ### Summary
 An infinite number of different models of USB to Serial converters can be found on every online shop, many of which even cost less than 1€ shipped from China, so why make one more? There are a few reasons:
 - Many of them are missing the DTR (and RTS) signals (or at least do not break it out so that it is easily usable). At least one of these signals is necessary for programming Arduino boards through the serial port and, since this makes up for 90% of my use of USB to serial converters, I find this pretty annoying.
-- Most of these cheap converters claim to be both 5V and 3.3V serial level compatible, but what most of them actually do is just use 3.3V signalling, which *usually* also works fine with boards that work at 5V, but still it is a bit of a hack.
+- Most of these cheap converters claim to be both 5V and 3.3V serial level compatible, but all most of them actually do is just use 3.3V signalling, which *usually* also works fine with boards that work at 5V, but still it is a bit of a hack.
 - None of these converters has a decent 3.3V regulator onboard, usually being able to provide only a few tens of milliamperes on the 3.3V power pin (and not even all of them have one). This is too little for some uses, like powering an ESP8266 module for instance, and is the source of maaany of the problems users report with that chip.
 - Finding Windows and OSX drivers for some of these modules is a nightmare.
 - Not to mention the infamous FTDI-gate...
 
-So, when I came across a USB to Serial chip ([Microchip MCP2200](https://www.microchip.com/wwwproducts/en/en546923)) that claimed not to need any particular drivers, I decided to have a go at designing the one converter to rule them all. I hope I considered every possible feature in the design, but in any case I am releasing this as Open Hardware, so everybody can customize it so that it fully suits their needs.
+So, when I came across a USB to Serial chip ([Microchip MCP2200](http://ww1.microchip.com/downloads/en/DeviceDoc/200022228D.pdf)) that had RTS/CTS signals and claimed not to need any particular drivers, I decided to have a go at designing the one converter to rule them all. I tried to consider every possible feature in the design, but in any case I am releasing this as Open Hardware, so everybody can customize it so that it fully suits their needs.
 
 ### Features
 - Real support for both 3.3V and 5V serial and power output levels
@@ -19,8 +19,11 @@ So, when I came across a USB to Serial chip ([Microchip MCP2200](https://www.mic
 - RX/TX pull-up resistors (optional)
 - Can provide up to 1A current on the 3.3V power output pin (This will actually be less as it will be limited by USB)
 - Hardware Flow Control pins (RTS/CTS, RTS can be used for the initial reset for Arduino programming)
+- Speed up to 1000 kBaud/s
 - Uses USB HID capabilities, which means it needs no drivers on Windows/OSX (This has to confirmed, as I only run Linux)
 - Configurable product/manufacturer strings and PID/VID
+- Ability to invert the polarity of the RX/TX signals
+- Small form factor (about the size of a standard thumb drive)
 - Cheap (less than 5€) and easy to DIY-build (about 20 common components)
 
 ### Assembly and Configuration
@@ -28,12 +31,14 @@ Solder all components to the board in the order you prefer. You have some option
 - R3 and R4 are the RX/TX inversion protection resistors. I used 100 ohm for these, which works fine in my tests, but this value was improvised rather than calculated. You might want to increase them up to 1k for additional safety. In rare cases, you might want to replace them with 0 ohm/solder blobs, but this might be harmful for the main chip or for the device it is connected to. Do this at your risk.
 - R5 and R6 are the RX/TX pull-up resistors. Usually these are not necessary, so you might want to skip them. Note that R7 is mandatory instead.
 
-The adapter is somehow configurable. On Windows you can use [the official Microchip Configuration Utility](http://ww1.microchip.com/downloads/en/DeviceDoc/MCP2200%20Configuration%20Utility%20v1.3.1.zip). On Linux (and OSX?) you can use [a quick replacement I put together](https://github.com/SukkoPera/OpenUsbSerialAdapter/tree/master/confutil), or [this other one](https://github.com/andrasbiro/mcp2200hid-linux). The latter is also capable of changing the USB product/manufacturer strings and PID/VID.
+The adapter is somewhat configurable. On Windows you can use [the official Microchip Configuration Utility](http://ww1.microchip.com/downloads/en/DeviceDoc/MCP2200%20Configuration%20Utility%20v1.3.1.zip). On Linux (and OSX?) you can use [a quick replacement I put together](https://github.com/SukkoPera/OpenUsbSerialAdapter/tree/master/confutil), or [this other one](https://github.com/andrasbiro/mcp2200hid-linux). The latter is also capable of changing the USB product/manufacturer strings and PID/VID.
 
-Note that the factory settings will NOT make the RX/TX leds blink on traffic, you will have to enable that through the configuration utility. Another apparent oddity is that you need to turn OFF the Hardware Flow Control to use the adapter for Arduino programming.
+Note that the factory settings of the chip will NOT make the RX/TX leds blink on traffic, you will have to enable that through the configuration utility. Another apparent oddity is that you need to turn Hardware Flow Control OFF in order to use the adapter for Arduino programming.
+
+Signal polarity inversion can also be enabled through the Configuration Utility.
 
 ### Usage
-Just plug the converter in your computer. On Linux you should get a /dev/ttyACMx device within seconds. On other Operating Systems... You are on your own :). In theory, it should not need any dedicated drivers, but I saw there are some [on the MCP2200 product page](https://www.microchip.com/wwwproducts/en/en546923), so you can get them from there, in case.
+Just plug the converter into a free USB port of your computer. On Linux a /dev/ttyACMx device should pop up within seconds. On other Operating Systems... You are on your own :). In theory, it should not need any dedicated drivers, but I saw there are some [on the MCP2200 product page](https://www.microchip.com/wwwproducts/en/en546923), so you can get them from there, in case.
 
 ### Releases
 If you want to get this board produced, you are recommended to get [the latest release](https://github.com/SukkoPera/OpenUsbSerialAdapter/releases) rather than the current git version, as the latter might be under development and is not guaranteed to be working.
