@@ -6,7 +6,7 @@ OpenUsbSerialAdapter is an Open Hardware USB to Serial converter.
 ### Summary
 An infinite number of different models of USB to Serial converters can be found on every online shop, many of which even cost less than 1€ shipped from China, so why make one more? There are a few reasons:
 - Many of them are missing the DTR (and RTS) signals (or at least do not break it out so that it is easily usable). At least one of these signals is necessary for programming Arduino boards through the serial port and, since this makes up for 90% of my use of USB to serial converters, I find this pretty annoying.
-- Most of these cheap converters claim to be both 5V and 3.3V serial level compatible, but usually, all they do is use 3.3V signalling, which *usually* also works fine with boards that work at 5V, but still it is a bit of a hack.
+- Most of these cheap converters claim to be both 5V and 3.3V serial level compatible, but what most of them actually do is just use 3.3V signalling, which *usually* also works fine with boards that work at 5V, but still it is a bit of a hack.
 - None of these converters has a decent 3.3V regulator onboard, usually being able to provide only a few tens of milliamperes on the 3.3V power pin (and not even all of them have one). This is too little for some uses, like powering an ESP8266 module for instance, and is the source of maaany of the problems users report with that chip.
 - Finding Windows and OSX drivers for some of these modules is a nightmare.
 - Not to mention the infamous FTDI-gate...
