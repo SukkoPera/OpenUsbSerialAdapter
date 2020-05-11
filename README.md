@@ -25,8 +25,8 @@ So, when I came across a USB to Serial chip ([Microchip MCP2200](https://www.mic
 
 ### Assembly and Configuration
 Solder all components to the board in the order you prefer. You have some options:
-- Rx and Ry are the RX/TX pull-up resistors. Usually these are not necessary, so you might want to skip them. Note that Rz is mandatory (Reset pull-up).
-- Rx and Ry are the RX/TX inversion protection resistors. I use 100 ohm for these, which works fine in my tests, but this value was improvised rather than calculated. You might want to increase them up to 1k for additional safety. In rare cases, you might want to replace them with 0 ohm/solder blobs, but this might be harmful for the main chip or for the device it is connected to. Do this at your risk.
+- R3 and R4 are the RX/TX inversion protection resistors. I use 100 ohm for these, which works fine in my tests, but this value was improvised rather than calculated. You might want to increase them up to 1k for additional safety. In rare cases, you might want to replace them with 0 ohm/solder blobs, but this might be harmful for the main chip or for the device it is connected to. Do this at your risk.
+- R5 and R6 are the RX/TX pull-up resistors. Usually these are not necessary, so you might want to skip them. Note that R7 is mandatory instead.
 
 The adapter is somehow configurable. On Windows you can use [the official Microchip Configuration Utility](http://ww1.microchip.com/downloads/en/DeviceDoc/MCP2200%20Configuration%20Utility%20v1.3.1.zip). On Linux (and OSX?) you can use [a quick replacement I put together](https://github.com/SukkoPera/OpenUsbSerialAdapter/tree/master/confutil), or [this other one](https://github.com/andrasbiro/mcp2200hid-linux). The latter is also capable of changing the USB product/manufacturer strings and PID/VID.
 
