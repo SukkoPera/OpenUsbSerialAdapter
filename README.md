@@ -11,7 +11,7 @@ An infinite number of different models of USB to Serial converters can be found 
 - Finding Windows and OSX drivers for some of these modules is a nightmare.
 - Not to mention the infamous FTDI-gate...
 
-So, when I came across a USB to Serial chip ([Microchip MCP2200](https://www.microchip.com/wwwproducts/en/en546923)) that claimed not to need any particular drivers, I decided to have a go at designing the final converter. I hope I considered every possible feature in the design, but in any case I am releasing this as Open Hardware, so everybody can customize it so that it fully suits their needs.
+So, when I came across a USB to Serial chip ([Microchip MCP2200](https://www.microchip.com/wwwproducts/en/en546923)) that claimed not to need any particular drivers, I decided to have a go at designing the one converter to rule them all. I hope I considered every possible feature in the design, but in any case I am releasing this as Open Hardware, so everybody can customize it so that it fully suits their needs.
 
 ### Features
 - Real support for both 3.3V and 5V serial levels
