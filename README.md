@@ -21,7 +21,7 @@ So, when I came across a USB to Serial chip ([Microchip MCP2200](https://www.mic
 - Hardware Flow Control pins (RTS/CTS, RTS can be used for the initial reset for Arduino programming)
 - Uses USB HID capabilities, which means it needs no drivers on Windows/OSX (This has to confirmed, as I only run Linux)
 - Configurable product/manufacturer strings and PID/VID
-- Cheap (less than 5€) and easy to DIY-build (about 20 components)
+- Cheap (less than 5€) and easy to DIY-build (about 20 common components)
 
 ### Assembly and Configuration
 Solder all components to the board in the order you prefer. You have some options:
