@@ -1,17 +1,17 @@
 # OpenUsbSerialAdapter
-OpenUsbSerialAdapter is an Open Hardware USB to Serial converter.
+OpenUsbSerialAdapter is an Open Hardware USB to TTL-level Serial converter.
 
 ![Board](https://raw.githubusercontent.com/SukkoPera/OpenUsbSerialAdapter/master/img/render-top.png)
 
 ### Summary
-An infinite number of different models of USB to Serial converters can be found on every online shop, many of which even cost less than 1€ shipped from China, so why make one more? There are a few reasons:
-- Many of them are missing the DTR (and RTS) signals (or at least do not break it out so that it is easily usable). At least one of these signals is necessary for programming Arduino boards through the serial port and, since this makes up for 90% of my use of USB to serial converters, I find this pretty annoying.
+An infinite number of different models of USB to TTL-level serial converters can be found on every online shop, many of which even cost less than 1€ shipped from China, so why make one more? There are a few reasons:
+- Many of them are missing the DTR and RTS signals (or at least do not break them out so that they can be used). At least one of these signals is necessary for programming Arduino boards through the serial port and, since this makes up for 90% of my use of USB to serial converters, I find this pretty annoying.
 - Most of these cheap converters claim to be both 5V and 3.3V serial level compatible, but all most of them actually do is just use 3.3V signalling, which *usually* also works fine with boards that work at 5V, but still it is a bit of a hack.
 - None of these converters has a decent 3.3V regulator onboard, usually being able to provide only a few tens of milliamperes on the 3.3V power pin (and not even all of them have one). This is too little for some uses, like powering an ESP8266 module for instance, and is the source of maaany of the problems users report with that chip.
 - Finding Windows and OSX drivers for some of these modules is a nightmare.
 - Not to mention the infamous FTDI-gate...
 
-So, when I came across a USB to Serial chip ([Microchip MCP2200](http://ww1.microchip.com/downloads/en/DeviceDoc/200022228D.pdf)) that had RTS/CTS signals and claimed not to need any particular drivers, I decided to have a go at designing the one converter to rule them all. I tried to consider every possible feature in the design, but in any case I am releasing this as Open Hardware, so everybody can customize it so that it fully suits their needs.
+So, when I came across a USB to Serial chip ([Microchip MCP2200](http://ww1.microchip.com/downloads/en/DeviceDoc/200022228D.pdf)) that had RTS/CTS signals and claimed not to need any particular drivers, I decided to have a go at designing the one converter to rule them all. I tried to consider every possible feature during the design, but in any case I am releasing this as Open Hardware, so everybody can customize it so that it fully suits their needs.
 
 ### Features
 - Real support for both 3.3V and 5V serial and power output levels
@@ -24,7 +24,7 @@ So, when I came across a USB to Serial chip ([Microchip MCP2200](http://ww1.micr
 - Configurable product/manufacturer strings and PID/VID
 - Ability to invert the polarity of the RX/TX signals
 - Small form factor (about the size of a standard thumb drive)
-- Cheap (less than 5€) and easy to DIY-build (about 20 common components)
+- Cheap (total BOM cost is less than 3€) and easy to DIY-build (about 20 common components)
 
 ### Assembly and Configuration
 Solder all components to the board in the order you prefer. You have some options:
