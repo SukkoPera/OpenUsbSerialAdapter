@@ -1,20 +1,21 @@
 # OpenUsbSerialAdapter
-OpenUsbSerialAdapter is an Open Hardware USB to Serial converter.
+OpenUsbSerialAdapter is an Open Hardware USB to TTL-level Serial converter.
 
 ![Board](https://raw.githubusercontent.com/SukkoPera/OpenUsbSerialAdapter/master/img/render-top.png)
 
 ### Summary
-An infinite number of different models of USB to Serial converters can be found on every online shop, many of which even cost less than 1€ shipped from China, so why make one more? There are a few reasons:
-- Many of them are missing the DTR (and RTS) signals (or at least do not break it out so that it is easily usable). At least one of these signals is necessary for programming Arduino boards through the serial port and, since this makes up for 90% of my use of USB to serial converters, I find this pretty annoying.
+An infinite number of different models of USB to TTL-level serial converters can be found on every online shop, many of which even cost less than 1€ shipped from China, so why make one more? There are a few reasons:
+- Many of them are missing the DTR and RTS signals (or at least do not break them out so that they can be used). At least one of these signals is necessary for programming Arduino boards through the serial port and, since this makes up for 90% of my use of USB to serial converters, I find this pretty annoying.
 - Most of these cheap converters claim to be both 5V and 3.3V serial level compatible, but all most of them actually do is just use 3.3V signalling, which *usually* also works fine with boards that work at 5V, but still it is a bit of a hack.
 - None of these converters has a decent 3.3V regulator onboard, usually being able to provide only a few tens of milliamperes on the 3.3V power pin (and not even all of them have one). This is too little for some uses, like powering an ESP8266 module for instance, and is the source of maaany of the problems users report with that chip.
 - Finding Windows and OSX drivers for some of these modules is a nightmare.
 - Not to mention the infamous FTDI-gate...
 
-So, when I came across a USB to Serial chip ([Microchip MCP2200](http://ww1.microchip.com/downloads/en/DeviceDoc/200022228D.pdf)) that had RTS/CTS signals and claimed not to need any particular drivers, I decided to have a go at designing the one converter to rule them all. I tried to consider every possible feature in the design, but in any case I am releasing this as Open Hardware, so everybody can customize it so that it fully suits their needs.
+So, when I came across a USB to Serial chip ([Microchip MCP2200](http://ww1.microchip.com/downloads/en/DeviceDoc/200022228D.pdf)) that had RTS/CTS signals and claimed not to need any particular drivers, I decided to have a go at designing the one converter to rule them all. I tried to consider every possible feature during the design, but in any case I am releasing this as Open Hardware, so everybody can customize it so that it fully suits their needs.
 
 ### Features
-- Real support for both 3.3V and 5V serial and power output levels
+- Real support for both 3.3V and 5V signalling and power output levels
+- RX/TX leds
 - Protection resistors for RX/TX inversion
 - RX/TX pull-up resistors (optional)
 - Can provide up to 1A current on the 3.3V power output pin (This will actually be less as it will be limited by USB)
@@ -23,8 +24,8 @@ So, when I came across a USB to Serial chip ([Microchip MCP2200](http://ww1.micr
 - Uses USB HID capabilities, which means it needs no drivers on Windows/OSX (This has to confirmed, as I only run Linux)
 - Configurable product/manufacturer strings and PID/VID
 - Ability to invert the polarity of the RX/TX signals
-- Small form factor (about the size of a standard thumb drive)
-- Cheap (less than 5€) and easy to DIY-build (about 20 common components)
+- Compact form factor (about the size of a standard thumb drive)
+- Cheap (total BOM cost is less than 3€) and easy to DIY-build (about 20 common components, SMD soldering ability is required, but all components are 0805 or larger)
 
 ### Assembly and Configuration
 Solder all components to the board in the order you prefer. You have some options:
@@ -61,15 +62,15 @@ Any modifications made by Licensees (see section 3.4.b) shall be recorded in fil
 The Documentation Location of the original project is https://github.com/SukkoPera/OpenUsbSerialAdapter/.
 
 ### Support the Project
-Since the project is open you are free to get the PCBs made by your preferred manufacturer, however in case you want to support the development, you can order them from PCBWay through this link:
+If you want to support the project, you can order the boards from PCBWay through this link:
 
 [![PCB from PCBWay](https://www.pcbway.com/project/img/images/frompcbway.png)](https://www.pcbway.com/project/shareproject/OpenUsbSerialAdapter_V1.html)
 
-You get my gratitude and cheap, professionally-made and good quality PCBs, I get some credit that will help with this and [other projects](https://www.pcbway.com/project/member/shareproject/?bmbid=41100). You won't even have to worry about the various PCB options, it's all pre-configured for you!
+You get my gratitude and cheap, good quality PCBs, professionally-made. I get some credit that will help with this and [other projects](https://www.pcbway.com/project/member/shareproject/?bmbid=41100). You won't even have to worry about the various PCB options, it's all pre-configured for you!
 
-Also, if you still have to register to that site, [you can use this link](https://www.pcbway.com/setinvite.aspx?inviteid=41100) to get some bonus initial credit (and yield me some more).
+If you still have to register to that site, [you can use this link](https://www.pcbway.com/setinvite.aspx?inviteid=41100) to get some bonus initial credit (and yield me some more).
 
-Again, if you want to use another manufacturer, feel free to, don't feel obligated :). But then you can buy me a coffee if you want:
+You can also buy me a coffee if you want:
 
 <a href='https://ko-fi.com/L3L0U18L' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
